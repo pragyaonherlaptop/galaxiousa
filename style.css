@@ -1,0 +1,544 @@
+/*all pictures are made with css only, no images used */
+
+
+/* basic page stuff */
+body {
+  margin: 0;
+  background: black;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+/* hide the radio buttons, we only use them to know which slide is open */
+input[type="radio"] {
+  display: none;
+}
+
+.slideshow {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+/*slides*/
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s, visibility 1s;
+}
+
+/* show only the slide that matches the checked radio button */
+#s1:checked ~ .slideshow .slide1,
+#s2:checked ~ .slideshow .slide2,
+#s3:checked ~ .slideshow .slide3,
+#s4:checked ~ .slideshow .slide4,
+#s5:checked ~ .slideshow .slide5 {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* the stars (every slide gets them) */
+.slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(1.5px 1.5px at 20px 30px, #fff, transparent),
+    radial-gradient(1px 1px at 90px 140px, #fff, transparent),
+    radial-gradient(2px 2px at 160px 70px, #cfd8ff, transparent),
+    radial-gradient(1px 1px at 230px 190px, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 60px 220px, #ffe9c4, transparent),
+    radial-gradient(1px 1px at 280px 40px, #fff, transparent);
+  background-size: 300px 260px, 230px 300px, 350px 280px, 270px 240px, 410px 330px, 190px 210px;
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.55; }
+  100% { opacity: 1; }
+}
+
+
+/*caption*/
+.caption {
+  position: absolute;
+  top: 5%;
+  width: 100%;
+  text-align: center;
+  z-index: 5;
+  text-shadow: 0 0 10px black, 0 0 20px black;
+}
+.caption h2 {
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: 3px;
+}
+.caption p {
+  margin: 8px 0 0 0;
+  font-size: 16px;
+  color: #d0d4ff;
+}
+
+
+/*arrows and dots*/
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  font-size: 38px;
+  padding: 10px 16px;
+  color: white;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+.arrow:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+.left  { left: 15px; }
+.right { right: 15px; }
+
+.dots {
+  position: absolute;
+  bottom: 18px;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+/* fill in the dot of the slide that is open */
+#s1:checked ~ .slideshow .dot1,
+#s2:checked ~ .slideshow .dot2,
+#s3:checked ~ .slideshow .dot3,
+#s4:checked ~ .slideshow .dot4,
+#s5:checked ~ .slideshow .dot5 {
+  background: white;
+}
+
+
+/*SLIDE 1 - the milky way over the hills*/
+.slide1 {
+  background: linear-gradient(#03050f, #0e1740 60%, #2b2a58 100%);
+}
+
+/* the glowing band of the galaxy */
+.band {
+  position: absolute;
+  width: 170%;
+  height: 24%;
+  left: -35%;
+  top: 30%;
+  transform: rotate(-18deg);
+  background: radial-gradient(ellipse at center,
+    rgba(255, 238, 205, 0.85) 0%,
+    rgba(195, 170, 235, 0.55) 35%,
+    rgba(80, 90, 170, 0.25) 60%,
+    transparent 75%);
+  filter: blur(14px);
+}
+
+/* dark dust line in the middle of the band */
+.dust {
+  position: absolute;
+  width: 130%;
+  height: 4%;
+  left: -15%;
+  top: 41%;
+  transform: rotate(-18deg);
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 50%;
+  filter: blur(8px);
+}
+
+/* brighter part (the core) */
+.core1 {
+  position: absolute;
+  width: 280px;
+  height: 130px;
+  left: 55%;
+  top: 33%;
+  transform: rotate(-18deg);
+  background: radial-gradient(ellipse, rgba(255, 225, 160, 0.9), transparent 70%);
+  filter: blur(12px);
+}
+
+/* ground */
+.hill {
+  position: absolute;
+  background: #02030a;
+  border-radius: 50% 50% 0 0;
+}
+.hill1 {
+  width: 70%;
+  height: 28%;
+  left: -15%;
+  bottom: -8%;
+}
+.hill2 {
+  width: 80%;
+  height: 22%;
+  right: -20%;
+  bottom: -6%;
+  background: #04060f;
+}
+
+/* a little tent with a glow inside */
+.tent {
+  position: absolute;
+  left: 22%;
+  bottom: 14%;
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 45px solid #ff9a3c;
+  filter: drop-shadow(0 0 12px #ff9a3c);
+  opacity: 0.9;
+}
+
+
+/*SLIDE 2 - the galactic core*/
+.slide2 {
+  background: #04030c;
+}
+
+.glow {
+  position: absolute;
+  width: 85vmin;
+  height: 85vmin;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    #fff6d0 0%,
+    #ffcf7a 8%,
+    #e08a3c 20%,
+    #8a3a6a 38%,
+    #1b1240 60%,
+    transparent 72%);
+  filter: blur(10px);
+}
+
+/* dark dust bars in front of the glow */
+.lane {
+  position: absolute;
+  background: rgba(8, 4, 18, 0.7);
+  border-radius: 50%;
+  filter: blur(10px);
+}
+.lane1 {
+  width: 60vmin;
+  height: 5vmin;
+  left: 22%;
+  top: 44%;
+  transform: rotate(-25deg);
+}
+.lane2 {
+  width: 45vmin;
+  height: 4vmin;
+  left: 38%;
+  top: 58%;
+  transform: rotate(-15deg);
+}
+.lane3 {
+  width: 35vmin;
+  height: 3vmin;
+  left: 30%;
+  top: 36%;
+  transform: rotate(10deg);
+}
+
+
+/*SLIDE 3 - the moon*/
+.slide3 {
+  background: #000;
+}
+
+/* the moon is 590px big so we shrink it a bit to fit the screen */
+.moonwrap {
+  position: absolute;
+  left: 50%;
+  top: 56%;
+  transform: translate(-50%, -50%) scale(0.62);
+}
+
+/* the moon itself (a circle) */
+.moon {
+  width: 590px;
+  height: 590px;
+  border-radius: 50%;
+  background: #c4c0d2;
+  position: relative;
+  overflow: hidden;
+  /* this makes the edges darker so it looks round */
+  box-shadow: inset -25px -10px 60px rgba(0, 0, 0, 0.45);
+}
+
+/* every colour blob uses this, the blur makes the colours mix together */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(22px);
+}
+
+/*BLUE PARTS*/
+.blue1   { width: 70px;  height: 40px;  left: 242px; top: 6px;   background: #2c4a9c; }
+.blue2   { width: 150px; height: 130px; left: 202px; top: 68px;  background: #1f3f9e; }
+.blue3   { width: 200px; height: 110px; left: 78px;  top: 420px; background: #2c3f9a; }
+.blue4   { width: 110px; height: 90px;  left: 292px; top: 318px; background: #3a2f94; }
+.blue5   { width: 70px;  height: 80px;  left: 52px;  top: 270px; background: #3a5aa8; }
+.purple  { width: 90px;  height: 55px;  left: 310px; top: 490px; background: #8d84c4; }
+
+/*RED PARTS*/
+.red1    { width: 105px; height: 90px;  left: 130px; top: 112px; background: #b4262e; }
+.red2    { width: 90px;  height: 170px; left: 20px;  top: 190px; background: #d8584f; }
+.red3    { width: 90px;  height: 80px;  left: 100px; top: 375px; background: #c4415a; }
+.pink    { width: 100px; height: 80px;  left: 322px; top: 48px;  background: #e58a72; }
+
+/*ORANGE AND YELLOW (right side)*/
+.orange  { width: 210px; height: 180px; left: 330px; top: 125px; background: #ee8a3e; }
+.yellow  { width: 150px; height: 120px; left: 360px; top: 170px; background: #f4c04a; }
+.yellow2 { width: 50px;  height: 60px;  left: 190px; top: 285px; background: #f2d36a; }
+
+/* CRATERS*/
+.crater {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.35);
+}
+.c1  { width: 22px; height: 22px; left: 250px; top: 215px; }
+.c2  { width: 14px; height: 14px; left: 380px; top: 150px; }
+.c3  { width: 30px; height: 30px; left: 150px; top: 330px; }
+.c4  { width: 10px; height: 10px; left: 420px; top: 260px; }
+.c5  { width: 18px; height: 18px; left: 300px; top: 420px; }
+.c6  { width: 12px; height: 12px; left: 90px;  top: 150px; }
+.c7  { width: 26px; height: 26px; left: 230px; top: 470px; }
+.c8  { width: 9px;  height: 9px;  left: 470px; top: 200px; }
+.c9  { width: 16px; height: 16px; left: 350px; top: 270px; }
+.c10 { width: 20px; height: 20px; left: 60px;  top: 380px; }
+
+/*THE BIG WHITE CRATER (like Tycho)*/
+.bigcrater {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  left: 447px;
+  top: 365px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 25px 18px rgba(255, 255, 255, 0.8);
+}
+
+/* the white lines shooting out of it */
+.ray {
+  position: absolute;
+  left: 460px;
+  top: 378px;
+  height: 2px;
+  background: linear-gradient(to right, white, transparent);
+  transform-origin: left center;
+  filter: blur(1px);
+}
+.r1  { width: 170px; transform: rotate(0deg); }
+.r2  { width: 120px; transform: rotate(25deg); }
+.r3  { width: 190px; transform: rotate(50deg); }
+.r4  { width: 130px; transform: rotate(80deg); }
+.r5  { width: 160px; transform: rotate(110deg); }
+.r6  { width: 200px; transform: rotate(140deg); }
+.r7  { width: 140px; transform: rotate(170deg); }
+.r8  { width: 180px; transform: rotate(200deg); }
+.r9  { width: 120px; transform: rotate(230deg); }
+.r10 { width: 170px; transform: rotate(260deg); }
+.r11 { width: 150px; transform: rotate(290deg); }
+.r12 { width: 190px; transform: rotate(325deg); }
+
+/* a smaller bright spot on the bottom left */
+.spot1 {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 190px;
+  top: 490px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 18px 10px rgba(255, 255, 255, 0.7);
+}
+
+/* and a yellowish one in the middle */
+.spot2 {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 207px;
+  top: 325px;
+  border-radius: 50%;
+  background: #fff3c0;
+  box-shadow: 0 0 16px 8px rgba(255, 230, 150, 0.8);
+}
+
+
+/*SLIDE 4 - shooting stars*/
+.slide4 {
+  background: linear-gradient(#02030a, #0b1233 70%, #1c2150 100%);
+}
+
+.shoot {
+  position: absolute;
+  width: 160px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, white);
+  border-radius: 2px;
+  opacity: 0;
+}
+.shoot1 {
+  left: 12%;
+  top: 22%;
+  animation: shoot 5s linear infinite;
+}
+.shoot2 {
+  left: 45%;
+  top: 14%;
+  animation: shoot 5s linear infinite;
+  animation-delay: 2.5s;
+}
+
+@keyframes shoot {
+  0%   { transform: rotate(25deg) translateX(0);     opacity: 0; }
+  4%   { opacity: 1; }
+  25%  { transform: rotate(25deg) translateX(650px); opacity: 0; }
+  100% { transform: rotate(25deg) translateX(650px); opacity: 0; }
+}
+
+/* mountains at the bottom */
+.mountains {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 32%;
+  background: #03040c;
+  clip-path: polygon(0 100%, 0 60%, 15% 30%, 28% 55%, 42% 20%, 58% 60%, 72% 35%, 88% 58%, 100% 40%, 100% 100%);
+}
+
+
+/*SLIDE 5 - the spiral from above*/
+.slide5 {
+  background: radial-gradient(circle at center, #0b0c24, #02020a 70%);
+}
+
+.galaxy {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  width: 62vmin;
+  height: 62vmin;
+  transform: translate(-50%, -50%);
+}
+
+/* the arms spin really slowly */
+.arms {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: spin 120s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* each arm is just a curved border */
+.arm {
+  position: absolute;
+  border-radius: 50%;
+  border: 3.5vmin solid transparent;
+  border-top-color: rgba(170, 190, 255, 0.75);
+  border-left-color: rgba(170, 190, 255, 0.3);
+  filter: blur(5px);
+}
+.arm1 { width: 90%; height: 60%; left: 5%;  top: 20%; transform: rotate(0deg); }
+.arm2 { width: 90%; height: 60%; left: 5%;  top: 20%; transform: rotate(180deg); }
+.arm3 { width: 70%; height: 90%; left: 15%; top: 5%;  transform: rotate(90deg); }
+.arm4 { width: 70%; height: 90%; left: 15%; top: 5%;  transform: rotate(270deg); }
+.arm5 { width: 60%; height: 45%; left: 20%; top: 28%; transform: rotate(45deg);  border-top-color: rgba(255, 200, 220, 0.6); }
+.arm6 { width: 60%; height: 45%; left: 20%; top: 28%; transform: rotate(225deg); border-top-color: rgba(255, 200, 220, 0.6); }
+
+/* the bar in the middle */
+.bar {
+  position: absolute;
+  width: 40%;
+  height: 12%;
+  left: 30%;
+  top: 44%;
+  transform: rotate(-25deg);
+  background: rgba(255, 220, 150, 0.7);
+  border-radius: 50%;
+  filter: blur(10px);
+}
+
+/* the bright centre */
+.centre {
+  position: absolute;
+  width: 18%;
+  height: 18%;
+  left: 41%;
+  top: 41%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fffbe8, #ffd27a 45%, transparent 75%);
+  filter: blur(4px);
+}
+
+/* our sun - this one doesn't spin */
+.you {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 76%;
+  top: 38%;
+  border-radius: 50%;
+  background: #ffe14a;
+  box-shadow: 0 0 12px 5px rgba(255, 225, 74, 0.8);
+}
+.youtext {
+  position: absolute;
+  left: 79%;
+  top: 33%;
+  font-size: 14px;
+  color: #ffe14a;
+  white-space: nowrap;
+  text-shadow: 0 0 6px black;
+}
+
+
+/*small screens (phones)*/
+@media (max-width: 600px) {
+  .caption h2 { font-size: 24px; }
+  .caption p  { font-size: 13px; padding: 0 20px; }
+  .arrow      { font-size: 26px; padding: 8px 12px; }
+  .moonwrap   { transform: translate(-50%, -50%) scale(0.5); }
+}
