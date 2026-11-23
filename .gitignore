@@ -1,0 +1,10 @@
+# mac and windows junk
+.DS_Store
+Thumbs.db
+
+# editor folders
+.vscode/
+.idea/
+
+# logs
+*.log
