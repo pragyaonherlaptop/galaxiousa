@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galaxiousa - Milky Way Slideshow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- these hidden radio buttons are how the slideshow works (no javascript!) -->
+  <input type="radio" name="slide" id="s1" checked>
+  <input type="radio" name="slide" id="s2">
+  <input type="radio" name="slide" id="s3">
+  <input type="radio" name="slide" id="s4">
+  <input type="radio" name="slide" id="s5">
+
+  <div class="slideshow">
+
+    <!--SLIDE 1: THE MILKY WAY -->
+    <div class="slide slide1">
+      <div class="band"></div>
+      <div class="dust"></div>
+      <div class="core1"></div>
+
+      <!-- ground -->
+      <div class="hill hill1"></div>
+      <div class="hill hill2"></div>
+      <div class="tent"></div>
+
+      <div class="caption">
+        <h2>The Milky Way</h2>
+        <p>Our home galaxy, stretching across the night sky.</p>
+      </div>
+      <label for="s5" class="arrow left">&#10094;</label>
+      <label for="s2" class="arrow right">&#10095;</label>
+    </div>
+
+    <!-- SLIDE 2: THE GALACTIC CORE  -->
+    <div class="slide slide2">
+      <div class="glow"></div>
+      <div class="lane lane1"></div>
+      <div class="lane lane2"></div>
+      <div class="lane lane3"></div>
+
+      <div class="caption">
+        <h2>The Galactic Core</h2>
+        <p>The bright centre, packed with millions of stars.</p>
+      </div>
+      <label for="s1" class="arrow left">&#10094;</label>
+      <label for="s3" class="arrow right">&#10095;</label>
+    </div>
+
+    <!--SLIDE 3: THE MOON-->
+    <div class="slide slide3">
+      <div class="moonwrap">
+        <div class="moon">
+
+          <!-- blue -->
+          <div class="blob blue1"></div>
+          <div class="blob blue2"></div>
+          <div class="blob blue3"></div>
+          <div class="blob blue4"></div>
+          <div class="blob blue5"></div>
+          <div class="blob purple"></div>
+
+          <!-- red -->
+          <div class="blob red1"></div>
+          <div class="blob red2"></div>
+          <div class="blob red3"></div>
+          <div class="blob pink"></div>
+
+          <!-- orange + yellow -->
+          <div class="blob orange"></div>
+          <div class="blob yellow"></div>
+          <div class="blob yellow2"></div>
+
+          <!-- small craters -->
+          <div class="crater c1"></div>
+          <div class="crater c2"></div>
+          <div class="crater c3"></div>
+          <div class="crater c4"></div>
+          <div class="crater c5"></div>
+          <div class="crater c6"></div>
+          <div class="crater c7"></div>
+          <div class="crater c8"></div>
+          <div class="crater c9"></div>
+          <div class="crater c10"></div>
+
+          <!-- white lines coming out of the big crater -->
+          <div class="ray r1"></div>
+          <div class="ray r2"></div>
+          <div class="ray r3"></div>
+          <div class="ray r4"></div>
+          <div class="ray r5"></div>
+          <div class="ray r6"></div>
+          <div class="ray r7"></div>
+          <div class="ray r8"></div>
+          <div class="ray r9"></div>
+          <div class="ray r10"></div>
+          <div class="ray r11"></div>
+          <div class="ray r12"></div>
+
+          <!-- big crater and bright spots -->
+          <div class="bigcrater"></div>
+          <div class="spot1"></div>
+          <div class="spot2"></div>
+
+        </div>
+      </div>
+
+      <div class="caption">
+        <h2>The Moon</h2>
+        <p>Our neighbour, shown in false colour so you can see its minerals.</p>
+      </div>
+      <label for="s2" class="arrow left">&#10094;</label>
+      <label for="s4" class="arrow right">&#10095;</label>
+    </div>
+
+    <!-- SLIDE 4: SHOOTING STARS -->
+    <div class="slide slide4">
+      <div class="shoot shoot1"></div>
+      <div class="shoot shoot2"></div>
+      <div class="mountains"></div>
+
+      <div class="caption">
+        <h2>Shooting Stars</h2>
+        <p>Tiny bits of space dust burning up in our sky.</p>
+      </div>
+      <label for="s3" class="arrow left">&#10094;</label>
+      <label for="s5" class="arrow right">&#10095;</label>
+    </div>
+
+    <!-- SLIDE 5: THE SPIRAL-->
+    <div class="slide slide5">
+      <div class="galaxy">
+        <div class="arms">
+          <div class="arm arm1"></div>
+          <div class="arm arm2"></div>
+          <div class="arm arm3"></div>
+          <div class="arm arm4"></div>
+          <div class="arm arm5"></div>
+          <div class="arm arm6"></div>
+        </div>
+        <div class="bar"></div>
+        <div class="centre"></div>
+        <div class="you"></div>
+        <div class="youtext">You are here</div>
+      </div>
+
+      <div class="caption">
+        <h2>The Spiral</h2>
+        <p>If we looked from above, the Milky Way is a giant spiral.</p>
+      </div>
+      <label for="s4" class="arrow left">&#10094;</label>
+      <label for="s1" class="arrow right">&#10095;</label>
+    </div>
+
+    <!-- the little dots at the bottom -->
+    <div class="dots">
+      <label for="s1" class="dot dot1"></label>
+      <label for="s2" class="dot dot2"></label>
+      <label for="s3" class="dot dot3"></label>
+      <label for="s4" class="dot dot4"></label>
+      <label for="s5" class="dot dot5"></label>
+    </div>
+
+  </div>
+
+</body>
+</html>
