@@ -1,2 +1,2 @@
 # galaxiousa
-a random html-css practice project of moon
+a random html-css practice project 
