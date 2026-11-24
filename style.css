@@ -1,4 +1,5 @@
-/*all pictures are made with css only, no images used */
+/*GALAXIOUSA - milky way slideshow
+   all pictures are made with css only, no images used */
 
 
 /* basic page stuff */
@@ -23,7 +24,7 @@ input[type="radio"] {
 }
 
 
-/*slides*/
+/* slides  */
 .slide {
   position: absolute;
   top: 0;
@@ -72,7 +73,7 @@ input[type="radio"] {
 }
 
 
-/*caption*/
+/* caption (the text) */
 .caption {
   position: absolute;
   top: 5%;
@@ -93,7 +94,7 @@ input[type="radio"] {
 }
 
 
-/*arrows and dots*/
+/* arrows and dots */
 .arrow {
   position: absolute;
   top: 50%;
@@ -273,7 +274,7 @@ input[type="radio"] {
 }
 
 
-/*SLIDE 3 - the moon*/
+/* SLIDE 3 - the moon*/
 .slide3 {
   background: #000;
 }
@@ -313,18 +314,18 @@ input[type="radio"] {
 .blue5   { width: 70px;  height: 80px;  left: 52px;  top: 270px; background: #3a5aa8; }
 .purple  { width: 90px;  height: 55px;  left: 310px; top: 490px; background: #8d84c4; }
 
-/*RED PARTS*/
+/* ---------- RED PARTS ---------- */
 .red1    { width: 105px; height: 90px;  left: 130px; top: 112px; background: #b4262e; }
 .red2    { width: 90px;  height: 170px; left: 20px;  top: 190px; background: #d8584f; }
 .red3    { width: 90px;  height: 80px;  left: 100px; top: 375px; background: #c4415a; }
 .pink    { width: 100px; height: 80px;  left: 322px; top: 48px;  background: #e58a72; }
 
-/*ORANGE AND YELLOW (right side)*/
+/* ORANGE AND YELLOW (right side)*/
 .orange  { width: 210px; height: 180px; left: 330px; top: 125px; background: #ee8a3e; }
 .yellow  { width: 150px; height: 120px; left: 360px; top: 170px; background: #f4c04a; }
 .yellow2 { width: 50px;  height: 60px;  left: 190px; top: 285px; background: #f2d36a; }
 
-/* CRATERS*/
+/* CRATERS */
 .crater {
   position: absolute;
   border-radius: 50%;
@@ -342,7 +343,7 @@ input[type="radio"] {
 .c9  { width: 16px; height: 16px; left: 350px; top: 270px; }
 .c10 { width: 20px; height: 20px; left: 60px;  top: 380px; }
 
-/*THE BIG WHITE CRATER (like Tycho)*/
+/*THE BIG WHITE CRATER (like Tycho) */
 .bigcrater {
   position: absolute;
   width: 26px;
@@ -402,7 +403,7 @@ input[type="radio"] {
 }
 
 
-/*SLIDE 4 - shooting stars*/
+/* SLIDE 4 - shooting stars */
 .slide4 {
   background: linear-gradient(#02030a, #0b1233 70%, #1c2150 100%);
 }
@@ -472,21 +473,47 @@ input[type="radio"] {
   to   { transform: rotate(360deg); }
 }
 
-/* each arm is just a curved border */
+/* a faint blue haze behind the whole galaxy */
+.galaxy::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(120, 140, 255, 0.22), transparent 68%);
+}
+
+/* how the spiral is made:
+   each arm is a row of 60 little glowing dots (.star).
+   the number --i is set in the html (0 to 59).
+   a bigger --i means the dot is turned more AND sits further from the middle,
+   so the dots curve outwards like a spiral. the dots overlap and the blur
+   joins them up into one smooth band. colour goes from yellow to blue */
 .arm {
   position: absolute;
-  border-radius: 50%;
-  border: 3.5vmin solid transparent;
-  border-top-color: rgba(170, 190, 255, 0.75);
-  border-left-color: rgba(170, 190, 255, 0.3);
-  filter: blur(5px);
+  width: 100%;
+  height: 100%;
 }
-.arm1 { width: 90%; height: 60%; left: 5%;  top: 20%; transform: rotate(0deg); }
-.arm2 { width: 90%; height: 60%; left: 5%;  top: 20%; transform: rotate(180deg); }
-.arm3 { width: 70%; height: 90%; left: 15%; top: 5%;  transform: rotate(90deg); }
-.arm4 { width: 70%; height: 90%; left: 15%; top: 5%;  transform: rotate(270deg); }
-.arm5 { width: 60%; height: 45%; left: 20%; top: 28%; transform: rotate(45deg);  border-top-color: rgba(255, 200, 220, 0.6); }
-.arm6 { width: 60%; height: 45%; left: 20%; top: 28%; transform: rotate(225deg); border-top-color: rgba(255, 200, 220, 0.6); }
+.armB {
+  transform: rotate(180deg);   /* second arm = first arm turned half way round */
+}
+
+.star {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(2.4vmin + var(--i) * 0.045vmin);
+  height: calc(2.4vmin + var(--i) * 0.045vmin);
+  margin-left: calc(-1.2vmin - var(--i) * 0.0225vmin);
+  margin-top: calc(-1.2vmin - var(--i) * 0.0225vmin);
+  border-radius: 50%;
+  background: color-mix(in srgb, #ffd27a, #7f9cff calc(var(--i) * 1.7%));
+  opacity: calc(0.95 - var(--i) * 0.009);
+  filter: blur(4px);
+  transform: rotate(calc(var(--i) * 4.8deg)) translateX(calc(3vmin + var(--i) * 0.46vmin));
+}
 
 /* the bar in the middle */
 .bar {
@@ -535,7 +562,7 @@ input[type="radio"] {
 }
 
 
-/*small screens (phones)*/
+/*small screens (phones) */
 @media (max-width: 600px) {
   .caption h2 { font-size: 24px; }
   .caption p  { font-size: 13px; padding: 0 20px; }
